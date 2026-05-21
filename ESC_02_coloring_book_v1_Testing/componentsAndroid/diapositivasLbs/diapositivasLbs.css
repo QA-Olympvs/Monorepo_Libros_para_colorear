@@ -1,0 +1,227 @@
+
+/*
+swiper-container {
+    user-select: none;
+    box-sizing: border-box;
+    overflow: hidden;
+    width: 100%;
+    padding: 0px 0px;
+    height: auto;
+    aspect-ratio: 4/5;
+}
+
+swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    box-sizing: border-box;
+
+    overflow: hidden;
+}
+
+.swiper-slide-bg-image {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    z-index: 0;
+}
+
+.swiper-image {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    position: absolute;
+}
+
+.swiper-slide-content {
+    justify-content: space-evenly;
+    width: 75%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+}
+*/
+
+
+swiper-container {
+    user-select: none;
+    box-sizing: border-box;
+    overflow: visible;
+    width: 100%;
+    padding: 0px 0px;
+    height: auto;
+    aspect-ratio: 4/5;
+}
+
+swiper-container::part(container) {
+    overflow: visible;
+    box-sizing: border-box;
+    padding: 32px 0px;
+}
+
+swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 85%;
+    height: 100%;    
+    object-fit: fill;
+}
+
+.swiper-slide-bg-image {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    z-index: 0;
+}
+
+.swiper-image {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    position: absolute;
+}
+
+
+.swiper-pagination {
+    bottom: 160px !important;
+}
+
+.swiper-pagination-bullet {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 20px;
+    color: #000;
+    opacity: 1;
+    background: rgba(82, 82, 82, 0.3);
+}
+
+.swiper-pagination-bullet-active {
+    color: #000;
+    background: #000;
+}
+
+.titulo {
+    font-family: revert;
+    font-size: 55px;
+    font-weight: bold;
+    max-width: 800px;
+    position: relative;
+    text-align: left;
+}
+
+.oracion {
+    font-family: revert;
+    font-size: 35px;
+    max-width: 800px;
+    line-height: 1.3;    
+    margin-top: 10px;
+    text-align: justify;
+    position: relative;
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    bottom: 150px;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.video-click {
+    z-index: 10;
+    height: 10%;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+/* Modal */
+.slider-iframe-modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+    /* -webkit-animation-name: animatetop; */
+    -webkit-animation-duration: 0.4s;
+    /* animation-name: animatetop; */
+    animation-duration: 0.4s;
+}
+
+.slider-iframe-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.slider-close-modal-button {
+    position: absolute;
+    top: 10px; right: 10px;
+    z-index: 1000;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px; height: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.slider-iframe {
+    width: 100%; 
+    height: 100%;
+    border: none;
+}
+
+
+
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {bottom: -300px; opacity:0}
+    to {bottom:0; opacity:1}
+    from {transform: translateY(200vh)}
+    to {transform: translateY(0vh)}
+}
+
+@keyframes animatetop {
+    from {bottom:-300px; opacity:0}
+    to {bottom:0; opacity:1}
+    from {transform: translateY(200vh)}
+    to {transform: translateY(0vh)}
+}
+
+@-webkit-keyframes animatebottom {
+    from {transform: translateY(0vh)}
+    to {transform: translateY(200vh)}
+}
+
+@keyframes animatebottom {
+    from {transform: translateY(0vh)}
+    to {transform: translateY(200vh)}
+}

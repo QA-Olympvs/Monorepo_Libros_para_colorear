@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="assets/bootstrap.min.css">
+<link rel="stylesheet" href="assets/font-awesome.min.css">
+<style type="text/css"></style>
+<!-- <div id="container-mostrar-notas" class="container animacion" style=""> -->
+	<div class="row container-toolbar-notas">
+		<div class="col-auto mr-auto">
+			<button id="btn-abrir-lista-notas" type="button" class="btn btn-sm">
+				<i class="fa fa-list" aria-hidden="true"></i>
+			</button>
+		</div>
+		<div class="col-auto mr-auto">
+			<button id="cerrar-nota" type="button" class="btn btn-sm">
+				<i class="fa fa-chevron-down" aria-hidden="true"></i>
+			</button>
+		</div>
+		<div class="col-auto align-self-end">
+			<button id="btn-editar-nota" type="button" class="btn btn-sm">
+				<i class="fa fa-pencil" aria-hidden="true"></i>
+			</button>
+		</div>
+		<div class="col-auto" >
+			<button id="delete-nota" type="button" class="btn btn-sm">
+				<i class="fa fa-trash" aria-hidden="true"></i>
+			</button>
+		</div>
+	</div>
+
+	<div class="d-flex justify-content-center" style="margin: 0; padding: 5px; overflow: auto; height: 80%; padding-bottom: 3rem;">
+		<div class="my-auto mx-1 mx-sm-2 mx-md-3 mx-lg-5">
+			<button id="btn-previous-nota" class="btn" style="color: inherit; width: 100%; font-size: 1.5rem;">
+				<!-- <i class="fa fa-arrow-left" aria-hidden="true"></i> -->
+				<i class="fa fa-angle-left" aria-hidden="true"></i>
+			</button>
+		</div>
+		<div id="container-nota-data" class="my-2 d-flex flex-grow-1 animacion-200ms">
+			<img class="avatar rounded-circle float-start margin-right-5rem" src="./assets/user-img.png" alt="avatar">
+			<div class="nota-user">
+				<div class="mb-2 d-sm-flex d-flex">
+					<h6 id="autor-nota" class="m-0 margin-right-5rem">César Burgueño</h6>
+					<span id="fecha-nota" class="me-3 small">June 11, 2022</span>
+				</div>
+				<p id="txt-ver-nota"></p>
+				<textarea id="txt-nota-edit" style="display: none; width:100%" rows="6" cols="70"></textarea>
+			</div>
+		</div>
+		<div class="my-auto mx-1 mx-sm-2 mx-md-3 mx-lg-5">
+			<button id="btn-next-nota" class="btn" style="color: inherit; width: 100%; font-size: 1.5rem;">
+				<i class="fa fa-angle-right" aria-hidden="true"></i>
+
+				<!-- <i class="fa fa-arrow-right" aria-hidden="true"></i> -->
+			</button>
+		</div>
+		
+	</div>
+
+	<div id="container-btns-edit" class="row" style="display: none;">
+		<div class="col-auto align-self-end" style="margin-left: auto; margin-right: -30rem;">
+			<button id="btn-cancelar-editar-nota" type="button" class="btn-sm btn-block btn-dark">Cancelar</button>
+		</div>
+		<div class="col-auto" style="margin-right: 5rem; margin-left: auto;">
+			<button id="btn-guardar-editar-nota" type="button" class="btn-sm btn-block btn-primary" style="margin-right: 5rem; margin-left: auto;">Editar</button>
+		</div>
+	</div>
+<!-- </div> -->

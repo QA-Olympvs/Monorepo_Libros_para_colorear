@@ -1,0 +1,1 @@
+IDRViewer.config = {"pagecount":11,"title":"Testing Libro para colorear","author":"","fileName":"Testing Libro para colorear.pdf","bounds":[[909,1515],[909,1515],[909,1515],[909,1515],[909,1515],[909,1515],[909,1515],[909,1515],[909,1515],[909,1515],[909,1515]],"bookmarks":[],"thumbnailType":"png","pageType":"html","pageLabels":[]};

@@ -1,0 +1,54 @@
+<!-- Checar como hacer el backdrop con el hammer -->
+
+<!-- <div class="modal" id="modalIndice" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true"> -->
+    <div class="modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+			<!-- <h5 class="modal-title">Índice</h5> -->
+				<div class="dropdown">
+					<button class="btn btn-secondary dropdown-toggle" type="button" id="btn-select-tipo-lista" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Seleccionar tipo de lista
+					</button>
+					<div id="dropdown-menu-btns" class="dropdown-menu" aria-labelledby="dropdownMenu2" style="width: 100%;">
+					<button id="btn-ver-lista-favoritos" class="dropdown-item" type="button">Favoritos</button>
+					<button id="btn-ver-lista-notas" class="dropdown-item" type="button">Notas</button>
+					</div>
+				</div>
+				<div class="tipo-lista-actual">
+					<p id="lista-actual-favoritos" style="display: none;"><span>Favoritos</span></p>
+					<p id="lista-actual-notas" style="display: none;"><span>Notas</span></p>
+				</div>
+				<button id="btn-close" type="button" class="close" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div id="data-lista-content" class="modal-body f-height" style="overflow: auto !important; padding: 1rem !important;">
+					
+				</div>
+				<div id="outlinePanel" class="f-height" style="overflow: auto;"></div>
+
+			</div>
+			<div class="modal-footer">
+			<!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+			<button id="btn-close-b" type="button" class="btn btn-primary">Cerrar</button>
+			</div>
+		</div>
+    </div>
+<!-- </div> -->
+
+
+<!-- modal eliminar aceptar-->
+<div class="modal-wrapper-bg">
+	<div id="modal-elimiar-dialog" class="modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<p>¿Eliminar la nota?</p>
+			</div>
+			<div class="modal-footer">
+				<button id="btn-eliminar-cancelar" class="btn btn-sm btn-secondary">Cancelar</button>
+				<button id="btn-eliminar-aceptar" class="btn btn-sm btn-primary">Aceptar</button>
+			</div>
+		</div>
+	</div>
+</div>

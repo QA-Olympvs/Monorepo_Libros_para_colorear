@@ -1,0 +1,225 @@
+<style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    .video-container {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .video-wrapper {
+        position: relative;
+        width: 100%;
+        background: #000;
+        border-radius: 8px;
+        overflow: hidden;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+
+    video {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        border-radius: 8px;
+    }
+
+    /* Tap overlay — cubre el video para interceptar taps */
+    .vp-tap {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Ícono central de play/pause */
+    .vp-center-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.55);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+        pointer-events: none;
+        transition: opacity 0.25s;
+    }
+
+    /* Barra de controles inferior */
+    .vp-controls {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+        padding: 24px 12px 10px;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
+        border-radius: 0 0 8px 8px;
+        transition: opacity 0.3s;
+        pointer-events: none;
+    }
+    .vp-controls.active { pointer-events: auto; }
+
+    /* Progress bar */
+    .vp-progress-touch {
+        width: 100%;
+        padding: 10px 0;
+        cursor: pointer;
+        touch-action: none;
+    }
+    .vp-progress-track {
+        width: 100%;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.28);
+        border-radius: 2px;
+        position: relative;
+    }
+    .vp-progress-fill {
+        height: 100%;
+        width: 0%;
+        background: #e56f1f;
+        border-radius: 2px;
+    }
+    .vp-progress-thumb {
+        position: absolute;
+        top: 50%;
+        left: 0%;
+        transform: translate(-50%, -50%);
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #e56f1f;
+        opacity: 0;
+        transition: opacity 0.15s;
+    }
+    .vp-progress-touch:active .vp-progress-thumb,
+    .vp-seeking .vp-progress-thumb { opacity: 1; }
+
+    /* Fila inferior */
+    .vp-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 2px;
+    }
+    .vp-btn {
+        background: none;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        padding: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+    }
+    .vp-time {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.85);
+        white-space: nowrap;
+        font-family: -apple-system, sans-serif;
+        font-variant-numeric: tabular-nums;
+    }
+    .vp-spacer { flex: 1; }
+
+    /* Skip feedback (doble tap) */
+    .vp-skip-fb {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        opacity: 0;
+        pointer-events: none;
+        z-index: 3;
+        transition: opacity 0.15s;
+    }
+    .vp-skip-fb.visible { opacity: 1; }
+    .vp-skip-fb-left  { left: 8%; }
+    .vp-skip-fb-right { right: 8%; }
+    .vp-skip-fb span {
+        font-size: 12px;
+        font-weight: 700;
+        color: #fff;
+        font-family: -apple-system, sans-serif;
+        text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+        white-space: nowrap;
+    }
+    .vp-skip-fb svg {
+        filter: drop-shadow(0 1px 3px rgba(0,0,0,0.5));
+    }
+</style>
+
+<div class="video-container">
+    <div class="video-wrapper">
+        <video playsinline webkit-playsinline preload="none">
+            Your browser does not support HTML5 video.
+        </video>
+
+        <!-- Tap overlay -->
+        <div class="vp-tap"></div>
+
+        <!-- Feedback doble tap izquierda -->
+        <div class="vp-skip-fb vp-skip-fb-left">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+                <path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/>
+            </svg>
+            <span>-15s</span>
+        </div>
+
+        <!-- Feedback doble tap derecha -->
+        <div class="vp-skip-fb vp-skip-fb-right">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+                <path d="M12 5V1l5 5-5 5V7c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6h2c0 4.42-3.58 8-8 8s-8-3.58-8-8 3.58-8 8-8z"/>
+            </svg>
+            <span>+15s</span>
+        </div>
+
+        <!-- Ícono central -->
+        <div class="vp-center-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+                <polygon points="5,3 19,12 5,21"/>
+            </svg>
+        </div>
+
+        <!-- Controles -->
+        <div class="vp-controls active">
+            <div class="vp-progress-touch">
+                <div class="vp-progress-track">
+                    <div class="vp-progress-fill"></div>
+                    <div class="vp-progress-thumb"></div>
+                </div>
+            </div>
+            <div class="vp-row">
+                <button class="vp-btn vp-btn-play">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
+                </button>
+                <span class="vp-time"><span class="vp-cur">0:00</span> / <span class="vp-total">0:00</span></span>
+                <div class="vp-spacer"></div>
+                <button class="vp-btn vp-btn-mute">
+                    <svg class="icon-sound" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <polygon points="11,5 6,9 2,9 2,15 6,15 11,19" fill="white" stroke="none"/>
+                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+                        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                    </svg>
+                    <svg class="icon-mute" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" style="display:none">
+                        <polygon points="11,5 6,9 2,9 2,15 6,15 11,19" fill="white" stroke="none"/>
+                        <line x1="23" y1="9" x2="17" y2="15"/>
+                        <line x1="17" y1="9" x2="23" y2="15"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

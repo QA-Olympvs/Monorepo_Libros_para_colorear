@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 322 312.59" pointer-events="none" ontouchstart="event.stopImmediatePropagation();console.log('touch')">
+  <defs>
+    <style>
+      svg {
+        pointer-events: none;
+      }
+      .cls-1 {
+        stroke-width: 6px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #000;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-4 {
+        fill: #e5cd1f;
+      }
+
+      .cls-2 {
+        stroke-width: 8px;
+      }
+    </style>
+  </defs>
+  <g id="Capa_3" data-name="Capa 3"  pointer-events="none">
+    <rect class="cls-2" x="4" y="4" width="314" height="304.59" rx="20.65" ry="20.65"  pointer-events="none"/>
+  </g>
+  <g id="Capa_2" data-name="Capa 2"  pointer-events="none">
+    <rect class="cls-4" x="6" y="5.44" width="310.29" height="300.99" rx="20.65" ry="20.65"  pointer-events="none"/>
+  </g>
+  <g id="Capa_5" data-name="Capa 5"  pointer-events="none">
+    <path  pointer-events="none" class="cls-3" d="m96.42,207.3s-48.45-22.76-43.78-65.37,39.69-63.62,39.69-63.62c0,0,40.86-27.43,106.23-15.76,65.37,11.67,78.71,55.14,78.71,55.14,0,0,21.69,45.84-23.26,80.28s-89.89,23.35-89.89,23.35c0,0-35.02,39.11-75.3,30.35,0,0,18.09-33.27,7.59-44.36Z"/>
+  </g>
+  <g id="Capa_4" data-name="Capa 4"  pointer-events="none">
+    <path  pointer-events="none" class="cls-1" d="m96.42,207.3s-43.45-22.51-43.78-65.37,39.69-63.62,39.69-63.62c0,0,38.46-25.86,106.23-15.76,65.68,9.79,78.71,55.14,78.71,55.14,0,0,21.69,45.84-23.26,80.28s-89.89,23.35-89.89,23.35c0,0-35.02,39.11-75.3,30.35,0,0,18.09-33.27,7.59-44.36Z"/>
+  </g>
+</svg>

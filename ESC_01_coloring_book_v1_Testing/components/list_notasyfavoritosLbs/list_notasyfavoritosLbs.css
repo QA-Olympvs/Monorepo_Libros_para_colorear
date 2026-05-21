@@ -1,0 +1,209 @@
+:host {
+	top: 3rem;
+	left: 5%;
+	
+	height: auto;
+	width: 90%;
+	display: none;
+	animation: fadeInUp;
+	
+	position: fixed;
+	z-index: 1050;
+	outline: 0;
+	box-shadow: rgb(0 0 0 / 69%) 0px 2px 10px 0px;
+}
+
+:host(.animacion) {
+	animation-duration: 400ms;
+}
+
+.f-height {
+	height: calc(80vh - 3rem);
+}
+
+
+.modal-body {
+	padding: 0 !important;
+}
+
+.avatar {
+	height: 1rem;
+	width: 1rem;
+	position: relative;
+	display: inline-block;
+	-ms-flex-negative: 0 !important;
+	flex-shrink: 0 !important;
+}
+.margin-right-5rem {
+	margin-right: 0.5rem !important;
+}
+
+.ctn-nota:hover {
+	box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+}
+
+
+.tipo-lista-actual {
+	margin: 0 14%;
+	font-weight: bold;
+}
+
+
+.modal-wrapper-bg {
+	display: none;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background: rgb(0 0 0 / 70%);
+}
+
+#modal-elimiar-dialog {
+	/* position: absolute;
+	top: 75%;
+	left: 50%;
+	transform: translate(-50%, -50%); */
+	width: 70%;
+	margin: auto;
+}
+
+
+/* Favoritos */
+.thumbnail {
+	cursor: pointer;
+	display: block;
+	padding: 8px 0;
+	margin: 0 auto;
+	text-align: center;
+}
+.thumbnail img{
+	max-width: 160px;
+	border-radius: 5px;
+	border: 1px solid #bbb;
+}
+.currentPageThumbnail, .thumbnail:hover {
+	background-color: #ddd;
+}
+.currentPageThumbnail img, .thumbnail:hover img {
+	border: 1px solid #999;
+}
+
+
+
+#thumbnailPanel.visible, #outlinePanel.visible, #searchPanel.visible {
+	display: inline;
+}
+#thumbnailPanel.hidden, #searchPanel.hidden {
+	display: none;
+}
+#outlinePanel ul {
+	list-style-type: none;
+	padding: 0 5px;
+}
+#outlinePanel ul ul {
+	padding-left: 15px;
+	padding-right: 0;
+}
+#outlinePanel li {
+	color: #333;
+	padding: 2px;
+	font-family: Arial,serif;
+	font-size: 15px;
+}
+#outlinePanel li:hover {
+	background-color: #ddd;
+	cursor: pointer;
+}
+
+
+
+.btn-eliminar-nota {
+	color: #000000 !important;
+	position: absolute;
+	height: 30px;
+	right: 0;
+	top: 0;
+}
+
+
+/* Fade in entrnace */
+.animacion.fadeInUp {
+	animation-name: fadeInUp;
+	animation-timing-function: ease;
+}
+@-webkit-keyframes fadeInUp {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate3d(0,100%,0);
+		transform: translate3d(0,100%,0)
+	}
+
+	to {
+		opacity: 1;
+		-webkit-transform: translateZ(0);
+		transform: translateZ(0)
+	}
+}
+
+@keyframes fadeInUp {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate3d(0,100%,0);
+		transform: translate3d(0,100%,0)
+	}
+
+	to {
+		opacity: 1;
+		-webkit-transform: translateZ(0);
+		transform: translateZ(0)
+	}
+}
+
+/* Fade out down exit */
+:host(.animacion.fadeOutDown) {
+	animation-name: fadeOutDown;
+}
+@keyframes fadeOutDown {
+	from {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0;
+		transform: translate3d(0, 100%, 0);
+	}
+}
+
+.entrance-down {
+	animation: entrance-down !important;
+	animation-duration: 400ms !important;
+	transform-origin: center !important;
+	animation-timing-function: ease-in;
+}
+
+@keyframes entrance-down {
+    0% {
+        transform: scaleY(0.1);
+    }
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: 0 0 6px rgba(0,0,0,0.3);
+	background-color: transparent !important;
+	width: 0;
+}
+
+::-webkit-scrollbar {
+	width: 4px  !important;
+	background-color: transparent  !important;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #555555 !important;
+	border: 1px solid #555555 !important;
+	border-radius: 50px !important;
+}

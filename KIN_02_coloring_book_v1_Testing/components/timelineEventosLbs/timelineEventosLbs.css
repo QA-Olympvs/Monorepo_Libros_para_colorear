@@ -1,0 +1,5 @@
+/* timelineEventosLbs — shell styles only.
+   All functional styles are injected via JS (_getStyles / _getModalStyles). */
+:host {
+    display: block;
+}

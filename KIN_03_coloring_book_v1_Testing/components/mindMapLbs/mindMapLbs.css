@@ -1,0 +1,524 @@
+:host {
+  display: block;
+  font-family: 'Volte', -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif;
+}
+
+:root {
+  --mm-bg-main: #272727;
+  --mm-bg-header: #151515;
+  --mm-text-main: #fff;
+  --mm-text-muted: rgba(255, 255, 255, 0.55);
+
+  --mm-border-soft: rgba(255, 255, 255, 0.1);
+  --mm-border-softer: rgba(255, 255, 255, 0.08);
+  --mm-shadow-panel: 0 30px 80px rgba(0, 0, 0, 0.45);
+  --mm-shadow-card-hover: 0 16px 36px rgba(14, 22, 50, 0.42);
+
+  --mm-accent: #de8839;
+  --mm-accent-soft: rgba(222, 136, 57, 0.2);
+  --mm-accent-border: rgba(222, 136, 57, 0.35);
+  --mm-accent-zoom-text: #f2b473;
+  --mm-accent-zoom-border: rgba(222, 136, 57, 0.32);
+  --mm-accent-zoom-hover: rgba(222, 136, 57, 0.3);
+
+  --mm-btn-bg: rgba(255, 255, 255, 0.1);
+  --mm-btn-border: rgba(255, 255, 255, 0.14);
+  --mm-btn-text: rgba(255, 255, 255, 0.9);
+  --mm-btn-close-hover: rgba(255, 255, 255, 0.2);
+
+  --mm-btn-expand-bg: rgba(34, 197, 94, 0.16);
+  --mm-btn-expand-border: rgba(34, 197, 94, 0.32);
+  --mm-btn-expand-text: #86efac;
+
+  --mm-btn-collapse-bg: rgba(168, 85, 247, 0.16);
+  --mm-btn-collapse-border: rgba(168, 85, 247, 0.34);
+  --mm-btn-collapse-text: #d8b4fe;
+
+  --mm-btn-center-bg: rgba(14, 165, 233, 0.16);
+  --mm-btn-center-border: rgba(14, 165, 233, 0.34);
+  --mm-btn-center-text: #7dd3fc;
+
+  --mm-node-count-bg: #374151;
+  --mm-node-count-text: #9ca3af;
+}
+
+@keyframes mmFadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes mmTagPop {
+  from { opacity: 0; transform: scale(0.7); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes mmPulse {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes mmModalIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes mmModalOut {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.95); }
+}
+
+@keyframes mmNodeIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes mmLineIn {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes mmNodeInQuick {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes mmNodeOut {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.92); }
+}
+
+@keyframes mmBadgePop {
+  0% { transform: translateY(-50%) scale(0.5); }
+  50% { transform: translateY(-50%) scale(1.2); }
+  100% { transform: translateY(-50%) scale(1); }
+}
+
+@keyframes mmHeaderSlide {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes mmZoomFade {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Preview card (quiz-style) ── */
+
+.mm-preview-card {
+  width: 100%;
+  height: 100%;
+  background: var(--mm-bg-main);
+  border-radius: 24px;
+  border: 1px solid var(--mm-border-soft);
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+  text-align: center;
+  cursor: pointer;
+  box-sizing: border-box;
+  animation: mmFadeUp 0.5s ease both;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mm-preview-card:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: var(--mm-shadow-card-hover);
+}
+
+.mm-preview-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.mm-preview-icon-wrap {
+  width: 90px;
+  height: 90px;
+  border-radius: 24px;
+  background: var(--mm-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: white;
+}
+
+.mm-preview-badge {
+  background: var(--mm-accent-soft);
+  border: 1px solid var(--mm-accent-border);
+  color: var(--mm-accent);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 6px 18px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.mm-preview-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.mm-preview-title {
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--mm-text-main);
+  line-height: 1.3;
+  margin: 0;
+}
+
+.mm-preview-desc {
+  font-size: 28px;
+  color: var(--mm-text-muted);
+  line-height: 1.5;
+  margin: 0;
+  max-width: 420px;
+}
+
+.mm-preview-chips {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.mm-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 20px;
+  padding: 7px 16px;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--mm-text-main);
+  white-space: nowrap;
+  animation: mmTagPop 0.35s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.mm-chip-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.mm-start-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--mm-accent);
+  border: none;
+  border-radius: 50px;
+  padding: 16px 48px;
+  cursor: pointer;
+  color: var(--mm-text-main);
+  font-size: 26px;
+  font-weight: 700;
+  touch-action: manipulation;
+  transition: opacity 0.2s, transform 0.15s;
+  letter-spacing: 0.4px;
+  font-family: 'Volte', inherit;
+}
+
+.mm-start-btn:active {
+  opacity: 0.85;
+  transform: scale(0.97);
+}
+
+.mm-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100000;
+  display: flex;
+  font-family: 'Volte', -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif;
+  animation: mmModalIn 0.35s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.mm-modal.mobile {
+  background: var(--mm-bg-main);
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+.mm-modal.tablet {
+  background: var(--mm-bg-main);
+  align-items: center;
+  justify-content: center;
+}
+
+.mm-panel {
+  background: var(--mm-bg-main);
+  display: flex;
+  flex-direction: column;
+}
+
+.mm-panel.mobile {
+  width: 100vw;
+  height: 100vh;
+}
+
+.mm-panel.tablet {
+  width: calc(100vw - 64px);
+  max-width: 1400px;
+  height: calc(100vh - 64px);
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--mm-border-softer);
+  box-shadow: var(--mm-shadow-panel);
+}
+
+.mm-header {
+  display: flex;
+  flex-direction: column;
+  background: var(--mm-bg-header);
+  border-bottom: 1px solid var(--mm-border-soft);
+  flex-shrink: 0;
+  animation: mmHeaderSlide 0.4s 0.1s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.mm-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+
+.mm-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.mm-header-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.mm-header-title {
+  color: var(--mm-text-main);
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mm-toolbar {
+  display: flex;
+  gap: 6px;
+  padding: 0 20px 10px;
+  flex-wrap: wrap;
+}
+
+.mobile .mm-toolbar {
+  padding: 6px 12px 10px;
+  justify-content: flex-start;
+}
+
+.mm-actions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.mm-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--mm-btn-bg);
+  border: 1px solid var(--mm-btn-border);
+  border-radius: 10px;
+  padding: 8px 12px;
+  color: var(--mm-btn-text);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  transition: all 0.15s;
+  font-family: 'Volte', inherit;
+}
+
+.mm-btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mm-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+.mm-btn.expand {
+  background: var(--mm-btn-expand-bg);
+  border-color: var(--mm-btn-expand-border);
+  color: var(--mm-btn-expand-text);
+}
+
+.mm-btn.collapse-all {
+  background: var(--mm-btn-collapse-bg);
+  border-color: var(--mm-btn-collapse-border);
+  color: var(--mm-btn-collapse-text);
+}
+
+.mm-btn.center {
+  background: var(--mm-btn-center-bg);
+  border-color: var(--mm-btn-center-border);
+  color: var(--mm-btn-center-text);
+}
+
+.mm-btn.close {
+  background: var(--mm-btn-bg);
+  border: none;
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.78);
+  padding: 8px;
+  margin-left: 4px;
+}
+
+.mm-btn.close:hover {
+  background: var(--mm-btn-close-hover);
+  color: var(--mm-text-main);
+}
+
+.mm-canvas {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  cursor: grab;
+  touch-action: none;
+}
+
+.mm-transform {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+}
+
+.mm-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.mm-nodes {
+  position: relative;
+  z-index: 1;
+}
+
+.mm-line {
+  stroke-linecap: round;
+}
+
+.mm-zoom {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  gap: 4px;
+  z-index: 2;
+  animation: mmZoomFade 0.4s 0.25s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.mm-zbtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--mm-accent-soft);
+  border: 1px solid var(--mm-accent-zoom-border);
+  color: var(--mm-accent-zoom-text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  font-family: 'Volte', inherit;
+}
+
+.mm-zbtn:hover {
+  background: var(--mm-accent-zoom-hover);
+}
+
+.mm-node {
+  position: absolute;
+  padding: 10px 14px;
+  border-radius: 10px;
+  color: var(--mm-text-main);
+  line-height: 1.35;
+  box-sizing: border-box;
+  cursor: pointer;
+  user-select: none;
+  font-family: 'Volte', -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mm-node.root {
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  padding: 12px 16px;
+  border-radius: 14px;
+}
+
+.mm-node.child {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.mm-node-badge {
+  position: absolute;
+  right: -11px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--mm-text-main);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  z-index: 2;
+}
+
+.mm-node-count {
+  position: absolute;
+  right: -18px;
+  top: -2px;
+  min-width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 700;
+  background: var(--mm-node-count-bg);
+  color: var(--mm-node-count-text);
+  padding: 0 4px;
+  z-index: 3;
+}

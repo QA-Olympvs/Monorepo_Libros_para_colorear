@@ -1,0 +1,112 @@
+.RayarActivo {
+	/*touch-action: none;*/
+	position: absolute;
+	z-index: 7;
+}
+.RayarInactivo {
+	position: absolute;
+	z-index: 7;
+}
+
+.Subrayar{
+	/*background-color: yellow;*/
+   	/*opacity: 0.5;*/
+   	z-index: 6;
+   	position: absolute;
+   	/*border-radius: 8px;*/
+    padding: 8px;
+    /*margin: 20px 10px;*/
+    /*box-sizing: border-box;*/
+    /*mix-blend-mode: multiply;*/
+    -webkit-tap-highlight-color : rgba(0,0,0,0);
+}
+#idFavoritos{
+    position: absolute;
+    background: red;
+    z-index: 1;
+}
+.IndiceSelector {
+    padding: 8px;
+}
+/*Tool bar color*/
+.pwColor {
+    display: inline-block;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    border: 2px solid transparent;
+}
+.pwColorSelector {
+    list-style: none;
+}
+/***************/
+/*Float buttuon*/
+	 .float{
+		position:fixed;
+		bottom:40px;
+		right:40px;
+		display: none;
+	}
+
+	.my-float{
+		margin-top:22px;
+	}
+	.btn-group a{
+		width:60px;
+		height:60px;
+		background-color:#0C9;
+		color:#FFF;
+		border-radius:50px;
+		text-align:center;
+		box-shadow: 2px 2px 3px #999;
+		margin-top:	18px;
+		display: block; /* Make the buttons appear below each other */
+	}
+@media only screen and (max-width: 500px) {
+	 .float{
+		position:fixed;
+		bottom:140px;
+		right:16px;
+		display: none;
+	}
+
+	.my-float{
+		margin-top:12px;
+	}
+	.btn-group a{
+		width: 39px;
+	    height: 39px;
+	    background-color: #0C9;
+	    color: #FFF;
+	    border-radius: 50px;
+	    text-align: center;
+	    box-shadow: 2px 2px 3px #999;
+	    margin-top: 9px;
+	    display: block;
+	}
+}
+/****************/
+.cuaderno {
+	width:500px;
+	/*overflow:auto;*/
+	background-color:#FFF;
+	color:#222;
+	font-family:Courier, monospace;
+	font-weight:normal;
+	font-size:18px;
+	resize:none;
+	line-height:40px;
+	padding-left:5px;
+	padding-right:5px;
+	padding-top:45px;
+	padding-bottom:34px;
+	/*background-image:url(https://static.tumblr.com/maopbtg/E9Bmgtoht/lines.png), url(https://static.tumblr.com/maopbtg/nBUmgtogx/paper.png);
+	background-repeat:repeat-y, repeat;
+	-webkit-border-radius:12px;
+	border-radius:12px;
+	-webkit-box-shadow: 0px 2px 14px #000;
+	box-shadow: 0px 2px 14px #000;
+	border-top:1px solid #FFF;
+	border-bottom:1px solid #FFF;*/
+}

@@ -1,0 +1,19 @@
+:host ::slotted(.border-iman-t1) {
+	position: absolute;
+	border: 3px dotted red;
+	height: 242px;
+	width: 109px;
+}
+
+
+:host ::slotted(.border-iman-t2) {
+	position: absolute;
+	border: 3px dotted red;
+	height: 268px;
+	width: 191px;
+}
+/* :host ::slotted(.unido) {
+	border: 5px dotted greenyellow;
+	z-index: 1500;
+	pointer-events: none;
+} */

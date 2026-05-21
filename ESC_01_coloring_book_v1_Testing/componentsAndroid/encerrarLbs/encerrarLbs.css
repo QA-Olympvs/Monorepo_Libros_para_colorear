@@ -1,0 +1,11 @@
+input {
+    background: transparent; 
+    border:none;
+    text-align-last:center; 
+    letter-spacing:-0.6px; 
+    display: block; 
+    z-index: 2; 
+    font-size:inherit;
+    font-family:Volte-Medium_Lbs,FontAwesome; 
+    color:inherit;
+}
